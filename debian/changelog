@@ -1,0 +1,5 @@
+labwc-prompt (0.1) bookworm; urgency=low
+
+  * Initial release
+
+ -- Simon Long <simon@raspberrypi.com>  Mon, 16 Sep 2024 11:19:06 +0100
