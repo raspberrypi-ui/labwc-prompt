@@ -49,12 +49,22 @@ static wm_type wm;
 static GtkWidget *main_dlg, *switch_btn, *keep_btn, *later_btn;
 
 
+static void remove_autostart (void)
+{
+    system ("sudo rm -f /etc/xdg/autostart/labwc-prompt.desktop");
+}
+
 static void do_switch (GtkButton *button, gpointer data)
 {
+    system ("sudo raspi-config nonint do_wayland W3");
+    remove_autostart ();
+    system ("sync;reboot");
 }
 
 static void do_keep (GtkButton *button, gpointer data)
 {
+    remove_autostart ();
+    gtk_main_quit ();
 }
 
 static void do_later (GtkButton *button, gpointer data)
@@ -88,6 +98,12 @@ int main (int argc, char *argv[])
     }
     else wm = WM_OPENBOX;
 
+    if (wm == WM_LABWC)
+    {
+        remove_autostart ();
+        exit (0);
+    }
+
     // GTK setup
     gtk_init (&argc, &argv);
     gtk_icon_theme_prepend_search_path (gtk_icon_theme_get_default(), PACKAGE_DATA_DIR);
@@ -101,11 +117,23 @@ int main (int argc, char *argv[])
     switch_btn = (GtkWidget *) gtk_builder_get_object (builder, "switch_btn");
     g_signal_connect (switch_btn, "clicked", G_CALLBACK (do_switch), NULL);
 
-    keep_btn = (GtkWidget *) gtk_builder_get_object (builder, "keep_btn");
-    g_signal_connect (keep_btn, "clicked", G_CALLBACK (do_keep), NULL);
-
     later_btn = (GtkWidget *) gtk_builder_get_object (builder, "later_btn");
     g_signal_connect (later_btn, "clicked", G_CALLBACK (do_later), NULL);
+
+    if (wm == WM_OPENBOX)
+    {
+        gtk_widget_hide (GTK_WIDGET (gtk_builder_get_object (builder, "wayfire_msg")));
+        gtk_widget_hide (GTK_WIDGET (gtk_builder_get_object (builder, "keep_w_btn")));
+        keep_btn = (GtkWidget *) gtk_builder_get_object (builder, "keep_x_btn");
+    }
+    else
+    {
+        gtk_widget_hide (GTK_WIDGET (gtk_builder_get_object (builder, "x_msg")));
+        gtk_widget_hide (GTK_WIDGET (gtk_builder_get_object (builder, "keep_x_btn")));
+        keep_btn = (GtkWidget *) gtk_builder_get_object (builder, "keep_w_btn");
+    }
+
+    g_signal_connect (keep_btn, "clicked", G_CALLBACK (do_keep), NULL);
 
     g_object_unref (builder);
 

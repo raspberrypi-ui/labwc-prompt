@@ -4,6 +4,7 @@
   <requires lib="gtk+" version="3.24"/>
   <object class="GtkDialog" id="main_window">
     <property name="can-focus">False</property>
+    <property name="title" translatable="yes">Update Notification</property>
     <property name="type-hint">dialog</property>
     <child internal-child="vbox">
       <object class="GtkBox">
@@ -13,6 +14,7 @@
         <child internal-child="action_area">
           <object class="GtkButtonBox">
             <property name="can-focus">False</property>
+            <property name="homogeneous">True</property>
             <property name="layout-style">end</property>
             <child>
               <object class="GtkButton" id="later_btn">
@@ -28,7 +30,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="keep_btn">
+              <object class="GtkButton" id="keep_w_btn">
                 <property name="label" translatable="yes">Keep Wayfire</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
@@ -41,8 +43,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="switch_btn">
-                <property name="label" translatable="yes">Switch To Labwc</property>
+              <object class="GtkButton" id="keep_x_btn">
+                <property name="label" translatable="yes">Keep X</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
@@ -53,6 +55,19 @@
                 <property name="position">2</property>
               </packing>
             </child>
+            <child>
+              <object class="GtkButton" id="switch_btn">
+                <property name="label" translatable="yes">Switch To Labwc</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -61,7 +76,28 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel">
+          <object class="GtkLabel" id="x_msg">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="label" translatable="yes">Your Raspberry Pi has been upgraded and can now run labwc.
+
+Labwc is a Wayland compositor - the part of the desktop which draws the windows. It is a more secure replacement for the X Window environment currently running on your system, and we recommend switching to it for the best experience.
+
+For more information, see https://raspberrypi.com.
+
+In the unlikely event that labwc causes problems, you can switch back to X using the raspi-config command-line tool.</property>
+            <property name="use-markup">True</property>
+            <property name="wrap">True</property>
+            <property name="max-width-chars">100</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="wayfire_msg">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="label" translatable="yes">Your Raspberry Pi has been upgraded and can now run labwc.
