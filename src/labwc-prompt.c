@@ -40,6 +40,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <gtk/gtk.h>
 #include <gdk/gdkx.h>
 
+#define SUDO_PREFIX "SUDO_ASKPASS=/usr/lib/labwc-prompt/pwdlpr.sh sudo -A "
+
 typedef enum {
     WM_OPENBOX,
     WM_WAYFIRE,
@@ -51,12 +53,12 @@ static GtkWidget *main_dlg, *switch_btn, *keep_btn, *later_btn;
 
 static void remove_autostart (void)
 {
-    system ("sudo rm -f /etc/xdg/autostart/labwc-prompt.desktop");
+    system (SUDO_PREFIX "rm -f /etc/xdg/autostart/labwc-prompt.desktop");
 }
 
 static void do_switch (GtkButton *button, gpointer data)
 {
-    system ("sudo raspi-config nonint do_wayland W3");
+    system (SUDO_PREFIX "raspi-config nonint do_wayland W3");
     remove_autostart ();
     system ("sync;reboot");
 }
