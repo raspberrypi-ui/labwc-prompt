@@ -79,16 +79,17 @@
           <object class="GtkLabel" id="x_msg">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <property name="use-markup">True</property>
             <property name="label" translatable="yes">Your Raspberry Pi has been upgraded and can now run labwc.
 
 Labwc is a Wayland compositor - the part of the desktop which draws the windows. It is a more secure replacement for the X Window environment currently running on your system, and we recommend switching to it for the best experience.
 
-For more information, see https://raspberrypi.com.
+For more information, see <a href="https://raspberrypi.com" title="Click here">our blog post</a>.
 
 In the unlikely event that labwc causes problems, you can switch back to X using the raspi-config command-line tool.</property>
-            <property name="use-markup">True</property>
             <property name="wrap">True</property>
             <property name="max-width-chars">100</property>
+            <property name="xalign">0</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -100,11 +101,12 @@ In the unlikely event that labwc causes problems, you can switch back to X using
           <object class="GtkLabel" id="wayfire_msg">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <property name="use-markup">True</property>
             <property name="label" translatable="yes">Your Raspberry Pi has been upgraded and can now run labwc.
 
 Labwc is an improved Wayland compositor - the part of the desktop which draws the windows. It offers improved performance over the Wayfire compositor currently running on your system, and we recommend switching to it for the best experience.
 
-For more information, see https://raspberrypi.com.
+For more information, see <a href="https://raspberrypi.com" title="Click here">our blog post</a>.
 
 In the unlikely event that labwc causes problems, you can switch back to Wayfire using the raspi-config command-line tool.</property>
             <property name="wrap">True</property>
