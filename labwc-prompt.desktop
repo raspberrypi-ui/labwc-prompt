@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=labwc-prompt
+Comment=Prompt to upgrade to labwc
+NoDisplay=true
+Exec=labwc-prompt
+NotShowIn=GNOME;KDE;XFCE;
