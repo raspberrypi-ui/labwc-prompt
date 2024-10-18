@@ -89,7 +89,7 @@ Labwc is a Wayland compositor - the part of the desktop which draws the windows.
 
 In the unlikely event that labwc causes problems, you can switch back to X using the raspi-config command-line tool.
 
-For more information, see &lt;a href="https://raspberrypi.com" title="Click here"&gt;our blog post&lt;/a&gt;.</property>
+For more information, see &lt;a href="https://rptl.io/new-labwc" title="Click here"&gt;our blog post&lt;/a&gt;.</property>
             <property name="use-markup">True</property>
             <property name="wrap">True</property>
             <property name="width-chars">50</property>
@@ -116,7 +116,7 @@ Labwc is an improved Wayland compositor - the part of the desktop which draws th
 
 In the unlikely event that labwc causes problems, you can switch back to Wayfire using the raspi-config command-line tool.
 
-For more information, see &lt;a href="https://raspberrypi.com" title="Click here"&gt;our blog post&lt;/a&gt;.</property>
+For more information, see &lt;a href="https://rptl.io/new-labwc" title="Click here"&gt;our blog post&lt;/a&gt;.</property>
             <property name="use-markup">True</property>
             <property name="wrap">True</property>
             <property name="width-chars">50</property>
