@@ -58,6 +58,7 @@ static void remove_autostart (void)
 
 static void do_switch (GtkButton *button, gpointer data)
 {
+    system (SUDO_PREFIX "raspi-config nonint update_labwc_keyboard");
     system (SUDO_PREFIX "raspi-config nonint do_wayland W3");
     remove_autostart ();
     system ("sync;reboot");
